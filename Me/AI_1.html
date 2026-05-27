@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive</title>
+
+  <!-- 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Pretendard', sans-serif;
+      background:#f8f8f8;
+      color:#222;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* 헤더 */
+
+    header{
+      width:100%;
+      padding:30px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid #ddd;
+      background:white;
+      position:sticky;
+      top:0;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:2px;
+    }
+
+    nav{
+      display:flex;
+      gap:30px;
+      font-size:14px;
+    }
+
+    nav a{
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      opacity:0.5;
+    }
+
+    /* 메인 */
+
+    main{
+      padding:60px;
+    }
+
+    .title{
+      margin-bottom:40px;
+    }
+
+    .title h1{
+      font-size:40px;
+      font-weight:600;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#777;
+      font-size:14px;
+    }
+
+    /* 카드 그리드 */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+      cursor:pointer;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .card img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .category{
+      font-size:12px;
+      color:#888;
+      margin-bottom:8px;
+      letter-spacing:1px;
+    }
+
+    .card-title{
+      font-size:18px;
+      font-weight:500;
+      margin-bottom:10px;
+    }
+
+    .desc{
+      font-size:14px;
+      color:#666;
+      line-height:1.5;
+    }
+
+    /* 푸터 */
+
+    footer{
+      padding:40px;
+      text-align:center;
+      color:#999;
+      font-size:13px;
+    }
+
+    /* 반응형 */
+
+    @media(max-width:900px){
+
+      header{
+        padding:20px;
+        flex-direction:column;
+        gap:20px;
+      }
+
+      main{
+        padding:20px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .title h1{
+        font-size:30px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- 헤더 -->
+
+  <header>
+
+    <div class="logo">
+      ARCHIVE
+    </div>
+
+    <nav>
+      <a href="#">Fashion</a>
+      <a href="#">Web</a>
+      <a href="#">Graphic</a>
+      <a href="#">About</a>
+    </nav>
+
+  </header>
+
+  <!-- 메인 -->
+
+  <main>
+
+    <section class="title">
+      <h1>My Mood Archive</h1>
+      <p>
+        design · fashion · web · objects
+      </p>
+    </section>
+
+    <!-- 카드 -->
+
+    <section class="grid">
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop" alt="fashion">
+
+        <div class="card-content">
+
+          <div class="category">
+            FASHION
+          </div>
+
+          <div class="card-title">
+            Soft Vintage Mood
+          </div>
+
+          <p class="desc">
+            코지하고 빈티지한 컬러 조합 아카이브
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="web">
+
+        <div class="card-content">
+
+          <div class="category">
+            WEB
+          </div>
+
+          <div class="card-title">
+            Minimal Web Design
+          </div>
+
+          <p class="desc">
+            좋아하는 웹사이트 UI 레퍼런스 모음
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="graphic">
+
+        <div class="card-content">
+
+          <div class="category">
+            GRAPHIC
+          </div>
+
+          <div class="card-title">
+            Editorial Layout
+          </div>
+
+          <p class="desc">
+            잡지 스타일 레이아웃 참고용 디자인
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+
+  <footer>
+    © 2026 My Archive
+  </footer>
+
+</body>
+</html>
