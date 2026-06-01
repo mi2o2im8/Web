@@ -1,17 +1,21 @@
+*{
+    background-color: #dad3ff;
+}
+
 #ex1 {
     text-align:center;
-    color: blue;
+    color: rgb(117, 31, 255);
 }
 
 h1{
-    padding: 10px; background-color: #b3c0eb; color: #fff;
+    padding: 10px; background-color: #8a51f5; color: #fff;
 }
 
 nana{
-    margin-right: 16px;
+    margin-right: 16px; border: 20px #8a51f5;
 }
 
 #sl1{
-    color: #ff8ed4;
+    color: #ffffff;
 
 }
