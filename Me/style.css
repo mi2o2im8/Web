@@ -79,21 +79,16 @@ nav a:hover{
     top: 150px;
 
     background: transparent;
-    border: 1px dotted red;
     padding: 0;
 }
 
 .img-btn1 span{
     position: absolute;
-    /* text-align: center; */
 
     width: 100%;
     height: 100%;
     left: 0;
     top: 100px;
-    
-    
-    /* display: flex;s */
 
     font-size: 20px;
     color: rgb(224, 19, 139);
@@ -107,3 +102,47 @@ nav a:hover{
     border: none;
 }
 
+#ck_1{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 30px;
+}
+
+#ck_2{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 60px;
+}
+
+#ck_3{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 90px;
+}
+
+#ck_4{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 120px;
+}
+
+#ck_5{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 150px;
+}
+
+#main_set1{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ik_list{
+    display: flex;
+    justify-content: space-around;
+}

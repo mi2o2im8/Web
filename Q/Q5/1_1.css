@@ -1,5 +1,13 @@
 *{
     background-color: #dad3ff;
+    
+}
+
+.big_box{
+        border: 4px solid #8a51f5;
+        width: 85%;
+        margin: 0 auto;
+        /* width: 1000px; */
 }
 
 #ex1 {
@@ -18,4 +26,18 @@ nana{
 #sl1{
     color: #ffffff;
 
+}
+
+img{
+    width: 450px;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+#pass_1{
+    display: flex;
+    margin-left: auto;
+    margin: right 20px;
+    box-shadow: 1px, 1px, 1px #8a51f5;
 }

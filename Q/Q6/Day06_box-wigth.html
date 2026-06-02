@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>박스 모델의 너비와 높이 지정하기</title>
+
+        <style>
+            .Box1{
+                border: 1px solid black;
+                width: 500px;
+                height: 100px;
+            }
+            .Box2{
+                border: 1px solid rgb(93, 255, 179);
+                width: 70%;
+                height: 100px;
+                overflow: hidden;
+
+                box-sizing: border-box;
+            }
+
+            div{
+                margin-bottom: 20px;
+
+            }
+
+
+            img{
+                width: 200px;
+                height: 150px;
+                position: absolute;
+                z-index: -1;
+                top: -30px;
+            }
+
+
+            .b_s button{
+                border: 2px solid plum;
+                font-size: 2em;
+                box-shadow: 2px 2px 2px rgb(130, 180, 238);
+            }
+
+            .b_s button:active{
+                transform: translate(2px, 2px);
+                box-shadow: none;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="Box1">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. At, minima. Alias eligendi nesciunt totam recusandae saepe vero beatae vel perferendis labore quasi corporis unde voluptatem, sapiente praesentium perspiciatis illum impedit?
+        </div>
+
+        <div class="Box2"> 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sit recusandae corporis sed reprehenderit modi soluta deleniti odit magni consequatur? Quisquam nesciunt iure accusantium quos possimus dolore error? Rem, quod.
+        </div>
+
+        <img src="../Q5/image/nyao.jpg" alt="냥">
+        
+        <p class="b_s">
+            <button>Do it!</button>
+        </p>
+    </body>
+</html>
