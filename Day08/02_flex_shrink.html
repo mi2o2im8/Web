@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슈링크</title>
+
+    <style>
+        #container{display: flex;}
+        #container>div{
+            background-color: burlywood;
+            color: aliceblue;
+            width: 100px; /*창 사이즈를 줄이면 같이 줄어듦*/
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+        }
+        
+
+
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div>1</div>
+        <div>2</div>
+        <div style="flex-shrink: 0;">3</div> <!-- *슈링크 사용시 해당 자식만 적용한 만큼 사이즈가 고정됨 -->
+        <div>4</div>
+        <div>5</div>
+        <div style="flex-shrink: 2;">6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+
+
+</body>
+</html>

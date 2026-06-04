@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout3</title>
+
+    <style>
+        /* 자식요소들에 특정 영역별명을 지정하고 이 별명으로 grid를 차지하는 위치 지정 */
+        header{grid-area: aa;} /*니 맘대로 이름 지으3*/
+        nav{grid-area: bb;}
+        main{grid-area: cc;}
+        aside{grid-area: dd;}
+        footer{grid-area: ee;}
+
+        #wrap{
+            display: grid;
+            grid-template-areas: 
+                'aa aa aa aa aa' /*탭은 보기 편하게*/
+                'bb cc cc cc dd'
+                'ee ee ee ee ee';
+                
+            grid-template-rows: auto 300px auto;
+        }
+
+        #wrap>*{
+            background-color: rgb(239, 255, 147);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+            border: 1px solid black;
+        }
+
+        header{
+            display: flex; /*왼쪽으로 바짝정렬*/
+            flex-direction: row; /*한줄씩 짠다.*/
+            justify-content: space-between; /*요소끼리의 정렬*/
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h2>Grid area 를 이용한 Layout 구조</h2>
+
+    <div id="wrap">
+        <header>
+            <div>LOGO</div>
+            <div>TITLE</div>
+            <div>OPTION</div>
+        </header>
+        <nav>MENU</nav>
+        <main>CONTENT</main>
+        <aside>SIDE</aside>
+        <footer>FOOTER</footer>
+
+    </div>
+
+
+
+
+</body>
+</html>
+
+<!-- 여기까지 11~12챕터 -->
