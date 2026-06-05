@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>책예제1</title>
+</head>
+<body>
+
+    <style>
+        .container {
+            width: 700px;
+            display: flex; /*플렉스 컨테이너 지정*/
+            background-color: #ffe6e6;
+            border: 2px solid #558ece;
+            margin-bottom: 30px;
+            flex-direction: row;
+            flex-direction: row-reverse;
+            flex-direction: column;
+            flex-direction: column-reverse;
+        }
+
+        .container>div{
+            padding: 15px;
+            margin: 3px;
+            width: 100px;
+        }
+
+        #opt1{flex-direction: row; background-color: aqua;} /*왼쪽에서 오른쪽으로*/
+        #opt2{flex-direction: row-reverse; background-color: greenyellow;} /*오른쪽에서 왼쪽으로*/
+        #opt3{flex-direction: column; background-color: aqua;} /*위에서 아래로*/
+        /* #opt4{flex-direction: column-reverse;} 아래에서 위로 */
+        
+        #opt1{flex-flow: nowrap;}
+
+    </style>
+
+    <div class="container">
+        <div id="opt1">1</div>
+        <div id="opt2">2</div>
+        <div id="opt3">3</div>
+        <!-- <div id="opt4">4</div> -->
+    </div>
+
+    
+</body>
+</html>
