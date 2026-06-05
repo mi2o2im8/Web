@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 따라쟁이</title>
+
+    <style>
+        body {text-align: center;}
+    </style>
+
+</head>
+<body>
+
+    <h1 id="heading">자바스크립트</h1>
+    <p id="text">위 텍스트를 클릭해 보세요</p>
+
+    <script>
+        let heading = document.querySelector('#heading');
+        heading.onclick = function() {
+            heading.style.color = 'yellow';
+        }
+    </script>
+
+    <h1 id="heading2">자바스크립트</h1>
+    <p id="text">위 텍스트를 클릭해 보세요</p>
+
+    <script src="./change-color.js"></script>
+
+    <h1 id="heading3">니하오</h1>
+    <p>위 텍스트를 클릭해 보세요</p>
+
+    <script>
+        let heading3 = document.querySelector('#heading3');
+        heading3.onclick = function(){
+            heading3.style.color= "blue";
+        }
+    </script>
+
+    <script>alert("안녕하세요")</script>
+    <script>let reply= confirm("정말 배경 이미지를 바꾸겠습니까?")</script>
+    <script>let name=prompt("이름을 입력해봐라", "니하오");</script>
+
+    <script>
+        var name2=prompt("이름을 입력하세요.");
+    </script>
+    
+    <script>document.write("<h1>어서오세요</h1>");</script>
+
+    <script>
+        let name3 = prompt("이름을 입력하세요.");
+        document.write("<b><big>" + name3 + "</big></b>님, 환영합니다.");
+    </script>
+
+    <script>
+        let width;
+        let height;
+
+        width = 200;
+        height = 50;
+        let area = width*height;
+        console.log(area);
+        
+
+    </script>
+        
+    
+
+    
+    
+</body>
+</html>
