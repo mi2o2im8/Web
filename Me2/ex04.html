@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PULSE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:#f5f5f7;
+      color:#111;
+    }
+
+    .container{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      min-height:100vh;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar{
+      background:#ffffff;
+      border-right:1px solid #ececec;
+      padding:38px 24px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .logo{
+      font-size:42px;
+      font-weight:900;
+      letter-spacing:-3px;
+      margin-bottom:50px;
+    }
+
+    .logo span{
+      color:#8b5cf6;
+    }
+
+    .menu{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .menu button{
+      width:100%;
+      border:none;
+      background:none;
+
+      padding:16px 18px;
+      border-radius:18px;
+
+      text-align:left;
+
+      font-size:15px;
+      font-weight:700;
+
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .menu button:hover{
+      background:#f3f3f3;
+    }
+
+    .menu .active{
+      background:#111;
+      color:white;
+    }
+
+    .bottom-card{
+      background:#111;
+      color:white;
+
+      padding:24px;
+      border-radius:28px;
+
+      margin-top:40px;
+    }
+
+    .bottom-card span{
+      color:#8b5cf6;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .bottom-card h3{
+      font-size:28px;
+      margin:12px 0;
+      letter-spacing:-2px;
+    }
+
+    .bottom-card p{
+      color:#aaa;
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    /* MAIN */
+
+    main{
+      padding:28px;
+
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    /* TOPBAR */
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .search{
+      flex:1;
+    }
+
+    .search input{
+      width:100%;
+      border:none;
+      background:white;
+
+      padding:20px;
+      border-radius:22px;
+
+      font-size:15px;
+      outline:none;
+    }
+
+    .profile{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .live{
+      background:#111;
+      color:white;
+
+      padding:14px 20px;
+      border-radius:999px;
+
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .avatar{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+
+      background:
+      linear-gradient(
+      135deg,
+      #c084fc,
+      #8b5cf6
+      );
+    }
+
+    /* HERO */
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.4fr 420px;
+      gap:24px;
+    }
+
+    .hero-card{
+      position:relative;
+
+      min-height:520px;
+
+      border-radius:42px;
+      overflow:hidden;
+
+      padding:46px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+
+      background:
+      linear-gradient(
+      135deg,
+      #ffb6d9,
+      #8b5cf6,
+      #2b1055
+      );
+
+      color:white;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      background:
+      radial-gradient(circle at top right,
+      rgba(255,255,255,.35),
+      transparent 35%);
+    }
+
+    .hero-card *{
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+
+    .tag{
+      background:rgba(255,255,255,.16);
+
+      backdrop-filter:blur(10px);
+
+      padding:10px 16px;
+      border-radius:999px;
+
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .hero-card h1{
+      font-size:88px;
+      line-height:.9;
+      letter-spacing:-6px;
+
+      margin-bottom:24px;
+    }
+
+    .hero-card p{
+      font-size:21px;
+      color:#f6e9ff;
+
+      line-height:1.6;
+
+      max-width:600px;
+    }
+
+    .hero-stats{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.12);
+
+      backdrop-filter:blur(12px);
+
+      padding:20px 22px;
+      border-radius:24px;
+
+      min-width:180px;
+    }
+
+    .stat h2{
+      font-size:34px;
+      margin-bottom:6px;
+    }
+
+    .stat span{
+      color:#f0dfff;
+      font-size:14px;
+    }
+
+    /* SIDE LIVE */
+
+    .live-panel{
+      background:white;
+      border-radius:36px;
+      padding:30px;
+
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    .panel-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .panel-top h2{
+      font-size:30px;
+      letter-spacing:-2px;
+    }
+
+    .live-text{
+      color:#8b5cf6;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .reaction{
+      display:flex;
+      gap:14px;
+
+      padding-bottom:20px;
+      border-bottom:1px solid #eee;
+    }
+
+    .reaction:last-child{
+      border:none;
+      padding-bottom:0;
+    }
+
+    .reaction-avatar{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+
+      background:
+      linear-gradient(
+      135deg,
+      #ff9ecf,
+      #8b5cf6
+      );
+
+      flex-shrink:0;
+    }
+
+    .reaction h4{
+      font-size:16px;
+      margin-bottom:8px;
+    }
+
+    .reaction p{
+      color:#777;
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    .reaction span{
+      display:block;
+      margin-top:8px;
+
+      color:#aaa;
+      font-size:12px;
+    }
+
+    /* SECTION */
+
+    .section{
+      background:white;
+      border-radius:36px;
+      padding:32px;
+    }
+
+    .section-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      margin-bottom:28px;
+    }
+
+    .section-top h2{
+      font-size:34px;
+      letter-spacing:-2px;
+    }
+
+    .section-top button{
+      border:none;
+      background:#f3f3f3;
+
+      padding:12px 18px;
+      border-radius:999px;
+
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* CARDS */
+
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .trend-card{
+      background:#fafafa;
+      border-radius:28px;
+      overflow:hidden;
+    }
+
+    .thumb{
+      height:180px;
+
+      background:
+      linear-gradient(
+      135deg,
+      #ffb7db,
+      #8b5cf6,
+      #31135e
+      );
+
+      position:relative;
+    }
+
+    .thumb::before{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      background:
+      radial-gradient(circle at top,
+      rgba(255,255,255,.3),
+      transparent 50%);
+    }
+
+    .card-body{
+      padding:20px;
+    }
+
+    .card-body span{
+      color:#8b5cf6;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .card-body h3{
+      margin:10px 0 12px;
+      font-size:24px;
+      line-height:1.2;
+      letter-spacing:-1px;
+    }
+
+    .card-body p{
+      color:#777;
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    /* KEYWORD */
+
+    .keyword-wrap{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .keyword{
+      background:#f4efff;
+      color:#8b5cf6;
+
+      padding:14px 18px;
+      border-radius:999px;
+
+      font-weight:700;
+      font-size:14px;
+    }
+
+    @media(max-width:1400px){
+
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .card-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+    }
+
+    @media(max-width:1000px){
+
+      .container{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        display:none;
+      }
+
+      .hero-card h1{
+        font-size:62px;
+      }
+
+      .card-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <div>
+
+        <div class="logo">
+          PULSE<span>+</span>
+        </div>
+
+        <ul class="menu">
+
+          <li>
+            <button class="active">
+              홈
+            </button>
+          </li>
+
+          <li>
+            <button>
+              실시간 흐름
+            </button>
+          </li>
+
+          <li>
+            <button>
+              트렌드
+            </button>
+          </li>
+
+          <li>
+            <button>
+              시그널
+            </button>
+          </li>
+
+          <li>
+            <button>
+              저장소
+            </button>
+          </li>
+
+          <li>
+            <button>
+              커뮤니티
+            </button>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="bottom-card">
+
+        <span>● LIVE SIGNAL</span>
+
+        <h3>
+          지금 가장 뜨거운 흐름
+        </h3>
+
+        <p>
+          인터넷 반응 · 실시간 언급 · 밈 확산 추적
+        </p>
+
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main>
+
+      <!-- TOPBAR -->
+
+      <section class="topbar">
+
+        <div class="search">
+
+          <input
+          type="text"
+          placeholder="키워드, 밈, 흐름을 검색해보세요">
+
+        </div>
+
+        <div class="profile">
+
+          <div class="live">
+            ● LIVE NOW
+          </div>
+
+          <div class="avatar"></div>
+
+        </div>
+
+      </section>
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <div class="hero-card">
+
+          <div class="hero-top">
+
+            <div class="tag">
+              TODAY'S TRENDING
+            </div>
+
+          </div>
+
+          <div>
+
+            <h1>
+              INTERNET<br>
+              REACTION<br>
+              FLOW
+            </h1>
+
+            <p>
+              지금 인터넷에서 가장 빠르게 확산되고 있는
+              실시간 반응 흐름을 추적합니다.
+            </p>
+
+          </div>
+
+          <div class="hero-stats">
+
+            <div class="stat">
+
+              <h2>+236%</h2>
+
+              <span>
+                언급량 상승
+              </span>
+
+            </div>
+
+            <div class="stat">
+
+              <h2>12.4M</h2>
+
+              <span>
+                실시간 반응
+              </span>
+
+            </div>
+
+            <div class="stat">
+
+              <h2>8.7M</h2>
+
+              <span>
+                공유된 흐름
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- LIVE PANEL -->
+
+        <div class="live-panel">
+
+          <div class="panel-top">
+
+            <h2>
+              LIVE FEED
+            </h2>
+
+            <div class="live-text">
+              ● LIVE
+            </div>
+
+          </div>
+
+          <div class="reaction">
+
+            <div class="reaction-avatar"></div>
+
+            <div>
+
+              <h4>
+                지금 언급량 엄청 올라가는 중
+              </h4>
+
+              <p>
+                여러 플랫폼에서 동시에 확산중...
+              </p>
+
+              <span>
+                방금 전
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="reaction">
+
+            <div class="reaction-avatar"></div>
+
+            <div>
+
+              <h4>
+                저장량이 갑자기 폭증함
+              </h4>
+
+              <p>
+                커뮤니티 반응 흐름 급변 중
+              </p>
+
+              <span>
+                2분 전
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="reaction">
+
+            <div class="reaction-avatar"></div>
+
+            <div>
+
+              <h4>
+                밈처럼 빠르게 퍼지는 중
+              </h4>
+
+              <p>
+                SNS 전체 확산 시작됨
+              </p>
+
+              <span>
+                5분 전
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- TREND SECTION -->
+
+      <section class="section">
+
+        <div class="section-top">
+
+          <h2>
+            TREND FLOW
+          </h2>
+
+          <button>
+            더보기
+          </button>
+
+        </div>
+
+        <div class="card-grid">
+
+          <article class="trend-card">
+
+            <div class="thumb"></div>
+
+            <div class="card-body">
+
+              <span>
+                VIRAL
+              </span>
+
+              <h3>
+                현재 가장 빠르게
+                확산 중인 흐름
+              </h3>
+
+              <p>
+                실시간 반응 증가율 +236%
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="trend-card">
+
+            <div class="thumb"></div>
+
+            <div class="card-body">
+
+              <span>
+                SIGNAL
+              </span>
+
+              <h3>
+                커뮤니티 반응
+                급상승 감지
+              </h3>
+
+              <p>
+                저장량과 공유량 동시 증가
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="trend-card">
+
+            <div class="thumb"></div>
+
+            <div class="card-body">
+
+              <span>
+                LIVE
+              </span>
+
+              <h3>
+                실시간 밈 확산
+                흐름 추적
+              </h3>
+
+              <p>
+                플랫폼 전체 언급량 상승중
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="trend-card">
+
+            <div class="thumb"></div>
+
+            <div class="card-body">
+
+              <span>
+                ARCHIVE
+              </span>
+
+              <h3>
+                가장 많이 저장된
+                반응 모음
+              </h3>
+
+              <p>
+                현재 사용자 관심 집중 구간
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- KEYWORD -->
+
+      <section class="section">
+
+        <div class="section-top">
+
+          <h2>
+            HOT KEYWORDS
+          </h2>
+
+          <button>
+            실시간
+          </button>
+
+        </div>
+
+        <div class="keyword-wrap">
+
+          <div class="keyword">#급상승</div>
+          <div class="keyword">#실시간반응</div>
+          <div class="keyword">#언급폭증</div>
+          <div class="keyword">#밈확산</div>
+          <div class="keyword">#바이럴</div>
+          <div class="keyword">#커뮤니티</div>
+          <div class="keyword">#트렌드</div>
+          <div class="keyword">#저장증가</div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
