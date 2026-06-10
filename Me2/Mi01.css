@@ -1,10 +1,125 @@
-#shb{
-    width: 30px;
-    height: 30px;
+*{
+    margin:0; padding:0%; box-sizing: border-box;
+}
+
+.home{
+    display: flex;
+    align-items: flex-start;
+}
+
+.h_main{
+    display: grid;
+}
+
+/* 헤더랑 메인 묶기 그리드? */
+.header{
+    display: flex;
+    border: 2px solid rgb(51, 255, 0);
+    /* flex-direction: column; */
 }
 
 #cl1{
     border: none;
     background: none;
     cursor: pointer;
+    width: 1000px;
 }
+
+.side{
+    width: 200px;
+    height: 1000px;
+    border: 2px solid blue;
+    margin-left: 5%;
+}
+
+.side_btn{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.main{
+    flex: 1;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 2px solid red;
+    background-color: gray;
+    margin-right: 5%;
+}
+
+.Big_box_1{
+    display: flex;
+}
+
+.section{
+    border: 2px solid yellow;
+    margin: 5px auto;
+}
+
+#shb{
+    width: 30px;
+    height: 30px;
+
+    border: 2px solid rgb(0, 89, 255);
+}
+
+article{
+    border: 2px solid rgb(78, 0, 0);
+    margin: 5px auto;
+}
+
+.gauge{
+    width: 300px;
+    margin: 5px auto;
+    border: 2px solid red;
+}
+.fill{
+    width: 150px;
+    height: 13px;
+    background: linear-gradient(90deg,#d7ff26, rgb(255, 255, 255));
+
+    border: 2px solid rgb(138, 138, 138);
+}
+
+.percent{
+    font-size: 10px;
+    font-weight: 40px;
+    color: #ffa620;
+
+    border: 2px solid red;
+}
+
+/* 
+.btn_box{
+    display: flex;
+}
+ */
+
+.img_btn{
+    border: 2px solid green;
+}
+
+.pups{
+    display: flex;
+    position: relative;
+}
+
+.pup_box{
+    background-color: #51b3a2;
+    width: 280px;
+    height: 370px;
+    border: 2px solid red;
+}
+
+.text_box{
+    position: absolute;
+    background-color: rgb(121, 19, 255);
+    width: 280px;
+    height: 100px;
+    border: 2px solid rgb(153, 170, 0);
+    bottom: 0px;
+}
+
+.plf{
+    border: 2px solid purple;
+}
+
