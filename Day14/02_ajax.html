@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function aaa(){
+            //AJAX 기술을 수 행하는 내장된 객체를 생성
+            var  xhr= new XMLHttpRequest();
+
+            //서버로부터 데이터를 받으면 자동으로 발동하는 함수를 등록
+            xhr.onreadystatechange= function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    document.getElementById('kk').innerHTML=xhr.responseText;
+                }
+            }
+
+            // xhr.open('GET', './aaa.txt', true); //세번재 파라미터: 비동기 방식 여부
+            // xhr.open('GET', './01_no_ajax.html', true);
+            //GET방식으로 서버의 백엔드 프로그램에 데이터를 ㅅ전송하고 응답결과를 받기
+            xhr.open('GET', './getTest.php?name=SAM&pw=1234', true); // 엠퍼센트가 기준이여야 하고 띄어쓰기x 2개를 가져오다. / true 붙여야 비동기 방식
+
+
+            xhr.send(); //요청 보내기
+        }
+
+        function bbb(){
+            // ajax를 수행하는 객체 생성
+            var xhr=new XMLHttpRequest();
+            xhr.open('POST','./postTest.php',true);
+            xhr.onreadystatechange= function(){ //서버의 응답을 받을 준비가 되어잇냐.
+                if(xhr.readyState==4 && xhr.status==200){  // 4응답도 완료됏다
+                    document.getElementById('kk').innerHTML=xhr.response;
+                }
+            }
+
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); //요청할때 보내는 헤더정보
+            xhr.send('name=ROBIN&pw=2222'); //요청보내기 -- POST 방식으로 보낼 데이터를 파라미터로 전달
+        }
+
+    </script>
+</head>
+<body>
+    
+    <p>
+        <button onclick="aaa()">GET 방식으로 데이터 요청</button>
+        <button onclick="bbb()">POST 방식으로 데이터 요청</button>
+    </p>
+    <hr>
+    <div id="kk"></div>
+
+
+</body>
+</html>

@@ -123,3 +123,27 @@ article{
     border: 2px solid purple;
 }
 
+.flow_box{
+    border: 2px solid orange;
+    display: flex;
+
+}
+
+.flow_card{
+    border: 2px solid blue;
+    margin: 0 auto;
+}
+
+.foot{
+    border: 2px solid green;
+    /* height: 100px;/ */
+}
+
+.foot_box{
+   display: flex;
+}
+
+#foot_logo{
+    border: 2px solid yellowgreen;
+    width: 110px; height: 100px;
+}
